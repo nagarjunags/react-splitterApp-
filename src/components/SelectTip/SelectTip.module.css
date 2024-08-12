@@ -1,0 +1,137 @@
+/* Base Styles */
+:root {
+  font-size: 16px; /* Base font-size for rem units */
+}
+
+.container {
+  background-color: white;
+  width: 100%;
+  box-sizing: border-box; /* Include padding in width calculation */
+}
+
+.title {
+  font-family: "Space Mono", monospace;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.25rem; /* 20px / 16 */
+  line-height: 1.875rem; /* 30px / 16 */
+  letter-spacing: 0.1em;
+  color: #5d6b6c;
+  margin-bottom: 1rem;
+}
+
+.buttonsContainer {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr)); /* Equal-width columns */
+  gap: 1rem;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #00474b;
+  color: #feffff;
+  border-radius: 0.375rem; /* 6px / 16 */
+  font-family: "Space Mono", monospace;
+  font-weight: 700;
+  font-size: 2rem; /* 32px / 16 */
+  line-height: 2.9375rem; /* 47px / 16 */
+  letter-spacing: 0.1em;
+  height: 4rem; /* 64px / 16 */
+  text-align: center;
+  cursor: pointer;
+  transition:
+    background 0.3s,
+    color 0.3s;
+  width: 100%;
+}
+
+.selected {
+  background: #00a878;
+  color: #ffffff;
+}
+
+.customButtonContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.custom {
+  background: #f3f8fb;
+  color: #5d6b6c;
+  font-size: 1.5rem; /* 24px / 16 */
+  line-height: 2.25rem; /* 36px / 16 */
+  height: 4rem;
+  width: 100%;
+  box-sizing: content-box;
+}
+
+.customInput {
+  width: 100%; /* Fill button’s width */
+  height: 100%;
+  padding: 0.5rem;
+  font-family: "Space Mono", monospace;
+  font-size: 1.5rem; /* 24px / 16 */
+  border: 2px solid #00474b;
+  border-radius: 0.375rem; /* 6px / 16 */
+  box-sizing: border-box;
+  text-align: right;
+}
+
+/* Tablet and Phone Sizes */
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .title {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+
+  .button {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    height: 3rem;
+  }
+
+  .custom {
+    font-size: 1.25rem;
+  }
+
+  .customInput {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0.5rem;
+  }
+
+  .title {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+
+  .buttonsContainer {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .button {
+    font-size: 1.25rem; /* Further reduced font-size */
+    line-height: 1.75rem; /* Adjust line-height */
+    height: 2.5rem; /* Further reduced height */
+  }
+
+  .custom {
+    font-size: 1rem; /* Adjust font-size */
+  }
+
+  .customInput {
+    font-size: 1rem; /* Adjust font-size */
+  }
+}

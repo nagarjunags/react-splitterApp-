@@ -1,0 +1,41 @@
+.widget {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  margin: 10px;
+  /* color: white; */
+  /* font-family: Arial, sans-serif; */
+  transition: transform 0.1s;
+}
+
+.widget:hover {
+  transform: scale(1.2);
+}
+
+.widget p {
+  font-size: 2em;
+  margin: 10px 0;
+  color: rgb(0, 0, 0);
+}
+
+.widget button {
+  padding: 10px 20px;
+  margin: 5px;
+  font-size: 1em;
+  color: rgb(255, 255, 255);
+  background-color: darkblue;
+  border: none;
+  border-radius: 45px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.widget button:hover {
+  background-color: navy;
+  transform: scale(1.1);
+}
+
+.widget button:active {
+  background-color: midnightblue;
+}

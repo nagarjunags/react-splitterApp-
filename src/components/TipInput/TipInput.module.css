@@ -1,0 +1,15 @@
+.container {
+  background-color: white;
+  width: 100%;
+}
+.spacer1 {
+  height: 5.43rem;
+}
+.spacer2 {
+  height: 3.5rem;
+}
+@media (max-width: 480px) {
+  .container {
+    padding: 0.5rem;
+  }
+}
