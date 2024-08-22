@@ -1,18 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { NumberInput } from "../NumberInput/NumberInput";
 import { SelectTip } from "../SelectTip/SelectTip";
-import styles from "./TipInput.module.css";
 
 interface TipInputProps {
   totalMoney: number;
   setTotalMoney: (value: number) => void;
   numOfPeople: number;
   setNumOfPeople: (value: number) => void;
-  tip: number; // Changed from string to number
-  setTip: (value: number) => void; // Updated to handle number
+  tip: number;
+  setTip: (value: number) => void;
   onValuesChange: (
     totalMoney: number,
-    tip: number, // Changed from string to number
+    tip: number,
     numOfPeople: number
   ) => void;
 }
@@ -51,7 +50,9 @@ export function TipInput({
   };
 
   return (
-    <div className={styles.container}>
+    <div className="bg-white w-full p-2.5 sm:p-0">
+      {" "}
+      {/* Added Tailwind classes */}
       <NumberInput
         TypeOfIcon="dollar"
         value={totalMoney}
@@ -59,12 +60,9 @@ export function TipInput({
         label="Bill"
         errorMessage={totalMoneyError}
       />
-      <div className={styles.spacer1}></div>
-
+      <div className="h-[5.43rem]"></div> {/* Spacer 1 */}
       <SelectTip selectedTip={tip} onSelect={setTip} />
-
-      <div className={styles.spacer2}></div>
-
+      <div className="h-[3.5rem]"></div> {/* Spacer 2 */}
       <NumberInput
         TypeOfIcon="person"
         value={numOfPeople}

@@ -1,5 +1,4 @@
 import React, { ChangeEvent, useState, useEffect } from "react";
-import styles from "./SelectTip.module.css";
 
 interface SelectTipProps {
   selectedTip: string;
@@ -9,7 +8,6 @@ interface SelectTipProps {
 export function SelectTip({ selectedTip, onSelect }: SelectTipProps) {
   const [customTip, setCustomTip] = useState<string>("");
 
-  // Focus the input field when "Custom" is selected
   useEffect(() => {
     if (selectedTip === "Custom") {
       const inputElement = document.getElementById(
@@ -20,10 +18,7 @@ export function SelectTip({ selectedTip, onSelect }: SelectTipProps) {
   }, [selectedTip]);
 
   const handleSelect = (value: string) => {
-    if (value !== "Custom") {
-      // setCustomTip(""); // Clear custom tip if another tip is selected
-    }
-    onSelect(value); // Update selected tip
+    onSelect(value);
   };
 
   const handleCustomChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -31,45 +26,51 @@ export function SelectTip({ selectedTip, onSelect }: SelectTipProps) {
     setCustomTip(value);
 
     if (selectedTip !== "Custom") {
-      onSelect("Custom"); // Ensure that "Custom" is selected
+      onSelect("Custom");
     }
 
-    // If the input is not empty, reflect the custom value in the selected tip
     if (value !== "") {
       onSelect(value);
     }
   };
 
   return (
-    <div className={styles.container}>
-      <div className={styles.title}>Select Tip %</div>
-      <div className={styles.buttonsContainer}>
+    <div className="w-full p-4 bg-white box-border">
+      <div className="mb-4 text-2xl font-bold tracking-wider text-gray-600 md:text-xl">
+        Select Tip %
+      </div>
+      <div className="grid grid-cols-2 gap-4 lg:grid-cols-3 sm:grid-cols-2 md:grid-cols-3">
         {["5%", "10%", "15%", "25%", "50%"].map((tip) => (
           <div
             key={tip}
-            className={`${styles.button} ${
-              selectedTip === tip ? styles.selected : ""
+            className={`flex justify-center items-center w-full h-16 rounded-md font-bold text-2xl cursor-pointer transition-colors duration-300 md:h-12 md:text-xl sm:h-10 sm:text-lg ${
+              selectedTip === tip
+                ? "bg-teal-700 text-white"
+                : "bg-teal-900 text-white"
             }`}
             onClick={() => handleSelect(tip)}
           >
             {tip}
           </div>
         ))}
-        <div className={styles.customButtonContainer}>
+        <div className="flex justify-center items-center w-full">
           {selectedTip === "Custom" ? (
             <input
               id="custom-tip-input"
               type="text"
-              className={styles.customInput}
+              className="w-full h-16 p-2 text-right border-2 border-teal-900 rounded-md font-bold text-xl md:h-12 md:text-lg sm:h-10 sm:text-base"
               value={customTip}
               onChange={handleCustomChange}
-              // placeholder="Enter custom tip"
               autoFocus
-              onClick={(e) => e.stopPropagation()} // Prevent input click from triggering handleSelect
+              onClick={(e) => e.stopPropagation()}
             />
           ) : (
             <div
-              className={`${styles.button} ${styles.custom}`}
+              className={`flex justify-center items-center w-full h-16 rounded-md font-bold text-xl cursor-pointer md:h-12 sm:h-10 sm:text-base ${
+                selectedTip === "Custom"
+                  ? "bg-teal-700 text-white"
+                  : "bg-gray-200 text-gray-600"
+              }`}
               onClick={() => handleSelect("Custom")}
             >
               Custom
