@@ -1,9 +1,8 @@
 import React, { useReducer } from "react";
 import ReactDOM from "react-dom/client";
-import "./index.css";
+import "./index.css"; // Make sure to import Tailwind styles here
 import { TipInput } from "./components/TipInput/TipInput";
 import { TipCalculatorDisplay } from "./components/BillDisplay/TipCalculatorDisplay";
-import styles from "./components/Calculator/Calculator.module.css";
 
 // Action types
 const UPDATE_TOTAL_MONEY = "UPDATE_TOTAL_MONEY";
@@ -52,8 +51,8 @@ export function App() {
   };
 
   return (
-    <div className={styles.container}>
-      <div className={`${styles.half} ${styles.input}`}>
+    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col  lg:flex-row gap-4 lg:gap-16 lg:w-full h-full max-h-[60rem] lg:max-h-[36rem] max-w-1100 bg-white p-8 rounded-20 box-border min-w-80">
+      <div className="w-full l g:w-1/2 pb-[60px]">
         <TipInput
           totalMoney={state.totalMoney}
           setTotalMoney={(value: number) =>
@@ -70,7 +69,7 @@ export function App() {
           onValuesChange={handleValuesChange}
         />
       </div>
-      <div className={`${styles.half} ${styles.tipCalculatorDisplay}`}>
+      <div className="w-full lg:w-1/2 flex flex-col justify-between">
         <TipCalculatorDisplay
           tipAmount={calculateTipAmount(
             state.totalMoney,
